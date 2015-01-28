@@ -49,7 +49,8 @@ class DataSource(val dsp: DataSourceParams)
         }
       }
       rating
-    }
+    }.cache()
+
     new TrainingData(ratingsRDD)
   }
 }
