@@ -8,7 +8,9 @@ Please refer to http://docs.prediction.io/templates/recommendation/quickstart/
 
 ### develop
 
-- TODO
+### v0.1.2
+
+- update for PredictionIO 0.9
 
 ### v0.1.1
 
