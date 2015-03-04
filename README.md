@@ -10,7 +10,7 @@ Please refer to http://docs.prediction.io/templates/recommendation/quickstart/
 
 ### v0.1.2
 
-- update for PredictionIO 0.9
+- update for PredictionIO 0.9.0
 
 ### v0.1.1
 
