@@ -35,6 +35,7 @@ class DataSource(val dsp: DataSourceParams)
       targetEntityType = Some(Some("item")))(sc)
 
     val ratingsRDD: RDD[Rating] = eventsRDD.map { event =>
+      logger.info("DataSource.getRatings")
       val rating = try {
         val ratingValue: Double = event.event match {
           case "rate" => event.properties.get[Double]("rating")
@@ -70,6 +71,7 @@ class DataSource(val dsp: DataSourceParams)
 
     val kFold = evalParams.kFold
     val ratings: RDD[(Rating, Long)] = getRatings(sc).zipWithUniqueId
+    ratings.cache
     
     (0 until kFold).map { idx => {
       val trainingRatings = ratings.filter(_._2 % kFold != idx).map(_._1)
