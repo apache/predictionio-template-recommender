@@ -88,12 +88,3 @@ object EngineParamsList extends BaseEngineParamsList {
         ("als", ALSAlgorithmParams(rank, numIterations, 0.01, Some(3)))))
 }
 
-object EngineParamsList2 extends BaseEngineParamsList {
-  engineParamsList = for(
-    rank <- Seq(10);
-    numIterations <- Seq(1, 2, 4, 6, 8, 12, 16, 20, 24)) 
-    yield baseEP.copy(
-      algorithmParamsList = Seq(
-        ("als", ALSAlgorithmParams(rank, numIterations, 0.01, Some(3)))))
-}
-
