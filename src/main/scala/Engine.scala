@@ -12,6 +12,10 @@ case class PredictedResult(
   itemScores: Array[ItemScore]
 ) extends Serializable
 
+case class ActualResult(
+  ratings: Array[Rating]
+) extends Serializable
+
 case class ItemScore(
   item: String,
   score: Double

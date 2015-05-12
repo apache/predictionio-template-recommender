@@ -8,6 +8,10 @@ Please refer to http://docs.prediction.io/templates/recommendation/quickstart/
 
 ### develop
 
+### v0.3.1
+
+- Add Evaluation module and modify DataSource for it
+
 ### v0.3.0
 
 - update for PredictionIO 0.9.2, including:
