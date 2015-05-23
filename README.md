@@ -8,6 +8,10 @@ Please refer to http://docs.prediction.io/templates/recommendation/quickstart/
 
 ### develop
 
+### v0.3.2
+
+- Fix incorrect top items in batchPredict() (issue #5)
+
 ### v0.3.1
 
 - Add Evaluation module and modify DataSource for it

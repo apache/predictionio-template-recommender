@@ -115,17 +115,17 @@ class ALSAlgorithm(val ap: ALSAlgorithmParams)
     val userRatings: RDD[(Int, Iterable[MLlibRating])] = ratings.groupBy(_.user)
 
     userIxQueries.leftOuterJoin(userRatings)
-    .map { 
+    .map {
       // When there are ratings
       case (userIx, ((ix, query), Some(ratings))) => {
         val topItemScores: Array[ItemScore] = ratings
         .toArray
-        .sortBy(_.rating)
+        .sortBy(_.rating)(Ordering.Double.reverse) // note: from large to small ordering
         .take(query.num)
         .map { rating => ItemScore(
           model.itemStringIntMap.inverse(rating.product),
           rating.rating) }
-          
+
         (ix, PredictedResult(itemScores = topItemScores))
       }
       // When user doesn't exist in training data
