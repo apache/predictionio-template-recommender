@@ -10,7 +10,7 @@ import io.prediction.controller.MetricEvaluator
 
 // Usage:
 // $ pio eval org.template.recommendation.RecommendationEvaluation \
-//   org.template.recommendation.ParamsList
+//   org.template.recommendation.EngineParamsList
 
 case class PrecisionAtK(k: Int, ratingThreshold: Double = 2.0)
     extends OptionAverageMetric[EmptyEvaluationInfo, Query, PredictedResult, ActualResult] {
