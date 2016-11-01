@@ -1,16 +1,16 @@
 package org.template.recommendation
 
-import io.prediction.controller.Evaluation
-import io.prediction.controller.OptionAverageMetric
-import io.prediction.controller.AverageMetric
-import io.prediction.controller.EmptyEvaluationInfo
-import io.prediction.controller.EngineParamsGenerator
-import io.prediction.controller.EngineParams
-import io.prediction.controller.MetricEvaluator
+import org.apache.predictionio.controller.Evaluation
+import org.apache.predictionio.controller.OptionAverageMetric
+import org.apache.predictionio.controller.AverageMetric
+import org.apache.predictionio.controller.EmptyEvaluationInfo
+import org.apache.predictionio.controller.EngineParamsGenerator
+import org.apache.predictionio.controller.EngineParams
+import org.apache.predictionio.controller.MetricEvaluator
 
 // Usage:
 // $ pio eval org.template.recommendation.RecommendationEvaluation \
-//   org.template.recommendation.ParamsList
+//   org.template.recommendation.EngineParamsList
 
 case class PrecisionAtK(k: Int, ratingThreshold: Double = 2.0)
     extends OptionAverageMetric[EmptyEvaluationInfo, Query, PredictedResult, ActualResult] {

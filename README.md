@@ -6,7 +6,9 @@ Please refer to http://docs.prediction.io/templates/recommendation/quickstart/
 
 ## Versions
 
-### develop
+### v0.4.0
+
+- Compatible with Apache PredictionIO 0.10.0-incubating
 
 ### v0.3.2
 
