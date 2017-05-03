@@ -1,4 +1,4 @@
-package org.template.recommendation
+package org.example.recommendation
 
 import org.apache.predictionio.controller.PDataSource
 import org.apache.predictionio.controller.EmptyEvaluationInfo

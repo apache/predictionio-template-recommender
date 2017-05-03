@@ -1,7 +1,7 @@
 {
   "id": "default",
   "description": "Default settings",
-  "engineFactory": "org.template.recommendation.RecommendationEngine",
+  "engineFactory": "org.example.recommendation.RecommendationEngine",
   "datasource": {
     "params" : {
       "appName": "INVALID_APP_NAME"
