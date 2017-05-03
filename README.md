@@ -2,9 +2,17 @@
 
 ## Documentation
 
-Please refer to http://docs.prediction.io/templates/recommendation/quickstart/
+Please refer to
+http://predictionio.incubator.apache.org/templates/recommendation/quickstart/.
 
 ## Versions
+
+### v0.11.0-incubating
+
+- Bump version number to track PredictionIO version
+- Rename Scala package name
+- Update SBT version
+- Fix typo
 
 ### v0.4.0
 
