@@ -27,7 +27,8 @@ class ALSAlgorithm(val ap: ALSAlgorithmParams)
   if (ap.numIterations > 30) {
     logger.warn(
       s"ALSAlgorithmParams.numIterations > 30, current: ${ap.numIterations}. " +
-      s"There is a chance of running to StackOverflowException. Lower this number to remedy it")
+      s"There is a chance of running to StackOverflowException." +
+      s"To remedy it, set lower numIterations or checkpoint parameters.")
   }
 
   def train(sc: SparkContext, data: PreparedData): ALSModel = {
@@ -48,24 +49,23 @@ class ALSAlgorithm(val ap: ALSAlgorithmParams)
     // seed for MLlib ALS
     val seed = ap.seed.getOrElse(System.nanoTime)
 
-    // If you only have one type of implicit event (Eg. "view" event only),
-    // replace ALS.train(...) with
-    //val m = ALS.trainImplicit(
-      //ratings = mllibRatings,
-      //rank = ap.rank,
-      //iterations = ap.numIterations,
-      //lambda = ap.lambda,
-      //blocks = -1,
-      //alpha = 1.0,
-      //seed = seed)
+    // Set checkpoint directory
+    // sc.setCheckpointDir("checkpoint")
 
-    val m = ALS.train(
-      ratings = mllibRatings,
-      rank = ap.rank,
-      iterations = ap.numIterations,
-      lambda = ap.lambda,
-      blocks = -1,
-      seed = seed)
+    // If you only have one type of implicit event (Eg. "view" event only),
+    // set implicitPrefs to true
+    val implicitPrefs = false
+    val als = new ALS()
+    als.setUserBlocks(-1)
+    als.setProductBlocks(-1)
+    als.setRank(ap.rank)
+    als.setIterations(ap.numIterations)
+    als.setLambda(ap.lambda)
+    als.setImplicitPrefs(implicitPrefs)
+    als.setAlpha(1.0)
+    als.setSeed(seed)
+    als.setCheckpointInterval(10)
+    val m = als.run(mllibRatings)
 
     new ALSModel(
       rank = m.rank,
