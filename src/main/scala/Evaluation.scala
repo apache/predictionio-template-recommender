@@ -24,12 +24,11 @@ case class PrecisionAtK(k: Int, ratingThreshold: Double = 2.0)
     // If there is no positive results, Precision is undefined. We don't consider this case in the
     // metrics, hence we return None.
     if (positives.size == 0) {
-      return None
+      None
+    } else {
+      val tpCount: Int = p.itemScores.take(k).filter(is => positives(is.item)).size
+      Some(tpCount.toDouble / math.min(k, positives.size))
     }
-
-    val tpCount: Int = p.itemScores.take(k).filter(is => positives(is.item)).size
-
-    Some(tpCount.toDouble / math.min(k, positives.size))
   }
 }
 

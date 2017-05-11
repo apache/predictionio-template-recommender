@@ -1,6 +1,6 @@
 package org.example.recommendation
 
-import org.apache.predictionio.controller.IEngineFactory
+import org.apache.predictionio.controller.EngineFactory
 import org.apache.predictionio.controller.Engine
 
 case class Query(
@@ -21,7 +21,7 @@ case class ItemScore(
   score: Double
 ) extends Serializable
 
-object RecommendationEngine extends IEngineFactory {
+object RecommendationEngine extends EngineFactory {
   def apply() = {
     new Engine(
       classOf[DataSource],

@@ -5,8 +5,8 @@ package org.apache.spark.mllib.recommendation
 
 import org.example.recommendation.ALSAlgorithmParams
 
-import org.apache.predictionio.controller.IPersistentModel
-import org.apache.predictionio.controller.IPersistentModelLoader
+import org.apache.predictionio.controller.PersistentModel
+import org.apache.predictionio.controller.PersistentModelLoader
 import org.apache.predictionio.data.storage.BiMap
 
 import org.apache.spark.SparkContext
@@ -20,7 +20,7 @@ class ALSModel(
     val userStringIntMap: BiMap[String, Int],
     val itemStringIntMap: BiMap[String, Int])
   extends MatrixFactorizationModel(rank, userFeatures, productFeatures)
-  with IPersistentModel[ALSAlgorithmParams] {
+  with PersistentModel[ALSAlgorithmParams] {
 
   def save(id: String, params: ALSAlgorithmParams,
     sc: SparkContext): Boolean = {
@@ -48,7 +48,7 @@ class ALSModel(
 }
 
 object ALSModel
-  extends IPersistentModelLoader[ALSAlgorithmParams, ALSModel] {
+  extends PersistentModelLoader[ALSAlgorithmParams, ALSModel] {
   def apply(id: String, params: ALSAlgorithmParams,
     sc: Option[SparkContext]) = {
     new ALSModel(
