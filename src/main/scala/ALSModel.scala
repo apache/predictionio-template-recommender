@@ -10,7 +10,6 @@ import org.apache.predictionio.controller.PersistentModelLoader
 import org.apache.predictionio.data.storage.BiMap
 
 import org.apache.spark.SparkContext
-import org.apache.spark.SparkContext._
 import org.apache.spark.rdd.RDD
 
 class ALSModel(

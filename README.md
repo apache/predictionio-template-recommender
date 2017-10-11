@@ -7,6 +7,13 @@ http://predictionio.incubator.apache.org/templates/recommendation/quickstart/.
 
 ## Versions
 
+### v0.12.0-incubating
+
+- Bump version number to track PredictionIO version
+- Sets default build targets according to PredictionIO
+- Add checkpoint parameters
+- Fix warnings and use of case class
+
 ### v0.11.0-incubating
 
 - Bump version number to track PredictionIO version

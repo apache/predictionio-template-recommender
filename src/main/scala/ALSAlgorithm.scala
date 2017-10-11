@@ -5,7 +5,6 @@ import org.apache.predictionio.controller.Params
 import org.apache.predictionio.data.storage.BiMap
 
 import org.apache.spark.SparkContext
-import org.apache.spark.SparkContext._
 import org.apache.spark.rdd.RDD
 import org.apache.spark.mllib.recommendation.ALS
 import org.apache.spark.mllib.recommendation.{Rating => MLlibRating}
